@@ -33,7 +33,8 @@ def create_task():
 
 @app.put("/tasks/<int:pk>/")
 def update_task(pk):
-    task.update_by_id(pk)
+    task_data = request.json
+    task.update_by_id(task_data, pk)
     return "", 204
 
 @app.delete("/tasks/<int:pk>/")
